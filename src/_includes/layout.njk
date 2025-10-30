@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or 'AI工具大全 - 精选人工智能工具目录，包括AI文本生成、代码生成、图像生成、视频生成等各类AI工具' }}">
+  <meta name="keywords" content="{{ keywords or 'AI工具,人工智能工具,AI文本生成,AI图像生成,AI代码生成,LLM,生成式AI' }}">
+  <meta name="author" content="AI工具大全">
+  
+  <!-- SEO相关标签 -->
+  <title>{{ title or 'AI工具大全 - 精选人工智能工具目录' }}</title>
+  <link rel="canonical" href="https://{{ site.url }}{{ page.url }}">
+  <meta name="robots" content="index, follow">
+  
+  <!-- 社交媒体分享标签 -->
+  <meta property="og:title" content="{{ title or 'AI工具大全 - 精选人工智能工具目录' }}">
+  <meta property="og:description" content="{{ description or 'AI工具大全 - 精选人工智能工具目录，包括AI文本生成、代码生成、图像生成、视频生成等各类AI工具' }}">
+  <meta property="og:url" content="https://{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter 卡片 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or 'AI工具大全 - 精选人工智能工具目录' }}">
+  <meta name="twitter:description" content="{{ description or 'AI工具大全 - 精选人工智能工具目录，包括AI文本生成、代码生成、图像生成、视频生成等各类AI工具' }}">
+  
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- 图标 -->
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="/css/style.css" as="style">
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI工具大全",
+    "alternateName": "AI Tools Directory",
+    "url": "https://{{ site.url | safe }}",
+    "description": "精选人工智能工具目录，包括AI文本生成、代码生成、图像生成、视频生成等各类AI工具",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://{{ site.url | safe }}/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="navigation">
+        <a href="/" class="logo">
+          <h1>AI工具大全</h1>
+        </a>
+        
+        <div class="nav-links">
+          {%- for entry in collections.nav | eleventyNavigation -%}
+            <a href="{{ entry.url }}" class="nav-link {% if entry.url == page.url %}active{% endif %}">{{ entry.title }}</a>
+          {%- endfor -%}
+        </div>
+        
+        <button class="mobile-menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      {{ content | safe }}
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h2>AI工具大全</h2>
+          <p>精选人工智能工具目录，帮助您发现最适合的AI工具</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>快速导航</h3>
+          <ul>
+            {%- for entry in collections.nav | eleventyNavigation -%}
+              <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        
+        <div class="footer-legal">
+          <p>&copy; 2024 AI工具大全. 保留所有权利.</p>
+          <p><a href="/privacy-policy">隐私政策</a> | <a href="/terms-of-service">服务条款</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 脚本 -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "title": "AI工具大全 - 精选人工智能工具目录",
+  "description": "AI工具大全是一个精选的人工智能工具目录，收录了各类AI文本生成、代码生成、图像生成、视频生成等工具，帮助用户发现最适合的AI应用",
+  "url": "aitools.example.com",
+  "author": {
+    "name": "AI工具大全",
+    "email": "contact@aitools.example.com"
+  },
+  "social": {
+    "twitter": "@aitools",
+    "github": "https://github.com/awesome-ai-tools"
+  },
+  "keywords": ["AI工具", "人工智能工具", "生成式AI", "LLM", "AI文本生成", "AI图像生成", "AI代码生成", "AI视频生成", "AI音乐生成"],
+  "categories": [
+    {
+      "id": "text",
+      "title": "AI文本工具",
+      "icon": "📝",
+      "description": "文本生成、聊天机器人、写作助手等AI文本处理工具"
+    },
+    {
+      "id": "code",
+      "title": "AI代码工具",
+      "icon": "👩‍💻",
+      "description": "代码生成、代码审查、编程辅助等AI开发工具"
+    },
+    {
+      "id": "image",
+      "title": "AI图像工具",
+      "icon": "🖼️",
+      "description": "图像生成、图像处理、AI绘画等创意工具"
+    },
+    {
+      "id": "video",
+      "title": "AI视频工具",
+      "icon": "📽️",
+      "description": "视频生成、视频编辑、视频处理等AI视频工具"
+    },
+    {
+      "id": "audio",
+      "title": "AI音频工具",
+      "icon": "🎶",
+      "description": "语音合成、音乐生成、语音识别等AI音频工具"
+    },
+    {
+      "id": "marketing",
+      "title": "AI营销工具",
+      "icon": "🎯",
+      "description": "内容营销、社交媒体、SEO优化等AI营销工具"
+    }
+  ],
+  "analytics": {
+    "googleAnalyticsId": "G-XXXXXXXXXX"
+  }
+}

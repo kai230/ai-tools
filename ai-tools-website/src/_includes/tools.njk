@@ -1,0 +1,81 @@
+---
+layout: layout.njk
+---
+
+<div class="category-page">
+  <!-- 分类头部 -->
+  <div class="category-header">
+    <h1>{{ category.icon }} {{ category.title }}</h1>
+    <p>{{ category.description }}</p>
+    <div class="tool-count">共收录 {{ tools.length }} 个工具</div>
+  </div>
+
+  <!-- 搜索和筛选 -->
+  <div class="search-filter-container">
+    <div class="search-container">
+      <form class="search-form" action="/search/" method="get">
+        <input type="text" class="search-input" placeholder="搜索此分类下的工具..." name="q" required>
+        <button type="submit" class="search-button">搜索</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 工具列表 -->
+  <div class="tools-container">
+    <div class="tools-grid">
+      {% for tool in tools %}
+      <div class="tool-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="applicationCategory" content="AI工具">
+        <meta itemprop="operatingSystem" content="Web">
+        
+        <!-- 工具头部 -->
+        <div class="tool-header">
+          {% if tool.logo %}
+          <img src="{{ tool.logo }}" alt="{{ tool.name }} logo" class="tool-logo" loading="lazy" itemprop="image">
+          {% else %}
+          <div class="tool-logo-placeholder">{{ tool.name | first }}</div>
+          {% endif %}
+          <h3 class="tool-name" itemprop="name">{{ tool.name }}</h3>
+        </div>
+        
+        <!-- 工具描述 -->
+        <p class="tool-description" itemprop="description">{{ tool.description }}</p>
+        
+        <!-- 工具特性 -->
+        {% if tool.features %}
+        <div class="tool-features">
+          {% for feature in tool.features %}
+          <span class="feature-tag">{{ feature }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
+        <!-- 工具底部 -->
+        <div class="tool-footer">
+          {% if tool.price %}
+          <div class="tool-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="price" content="{{ tool.price }}">
+            <span class="price-label">{{ tool.price }}</span>
+          </div>
+          {% endif %}
+          <a href="{{ tool.url }}" class="tool-link" target="_blank" rel="noopener noreferrer" itemprop="url">
+            访问官网 <span class="external-icon">→</span>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- 无工具提示 -->
+  {% if not tools.length %}
+  <div class="no-tools-message">
+    <p>此分类下暂无工具，我们正在持续更新中...</p>
+  </div>
+  {% endif %}
+
+  <!-- 分类底部 -->
+  <div class="category-footer">
+    <p>需要推荐或添加新的AI工具吗？请联系我们！</p>
+  </div>
+</div>
